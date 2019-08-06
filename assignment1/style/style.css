@@ -1,0 +1,67 @@
+body {
+    height: 100vh;
+    display: flex;
+    background: rgb(195, 147, 221);
+}
+
+.bar {
+    float: left;
+}
+.pscore {
+}
+
+.mem {
+    width: 640px;
+    height: 640px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;;
+    transition: all 1s ease;
+}
+
+.box {
+    width: calc(25% - 10px);
+    height: calc(25% - 10px);
+    margin: 5px;
+    position: relative;
+    box-shadow: 1px 1px 1px rgba(0,0,0,.3);
+    border-radius: 5px;
+    background: #1C7CCC;
+    transform: scale(1);
+}
+/* 
+.box:active {
+    transform: scale(0.97);
+    transition: transform .2s;
+} */
+
+.pickedBox {
+    background-color: green;
+}
+
+.wrongBox {
+    background-color: red;
+}
+
+.rightBox {
+    background-color: yellow;
+}
+
+.flip-transform {
+    transform: rotateY(180deg);
+}
+
+
+.box.turn {
+	transform: rotateX(180deg);
+	background-color: yellow;
+}
+
+
+.spinBoard {
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+}

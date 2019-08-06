@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Summary
+    </title>
+    <meta name="description" content="Zombie Broccoli">
+    <script src="jquery-3.3.1.min.js"></script>
+    <link href="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.css" rel="stylesheet">
+    <script src="https://www.gstatic.com/firebasejs/4.13.0/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.13.0/firebase-firestore.js"></script>
+    <!--
+      facebook metadata- unused;
+      <meta property="og:url"           content="https://zombiebroccoli.com/game/index.html" />
+      <meta property="og:type"          content="games.celebrate" />
+      <meta property="og:title"         content="Zombie Broccoli" />
+      <meta property="og:description"   content="Look at this cool game that I found! Play zombie broccoli" />
+      <meta property="og:image"         content="https://i5.walmartimages.ca/images/Large/950/304/6000016950304.jpg?odnBound=460" />
+      -->
+</head>
+
+
+<body>
+    <!--
+         Unused Facebook SDK for JavaScript
+         <div id="fb-root"></div>
+         <script>(function(d, s, id) {
+           var js, fjs = d.getElementsByTagName(s)[0];
+           if (d.getElementById(id)) return;
+           js = d.createElement(s); js.id = id;
+           js.src = "https://connect.facebook.net/en_US/all.js#xfbml=1";
+           fjs.parentNode.insertBefore(js, fjs);
+         }(document, 'script', 'facebook-jssdk'));</script>
+      -->
+    <div class="container">
+        </br>
+        </br>
+        <h1 id="top10">Top 10:</h1>
+        </br>
+        </br>
+        <h1 id="highScores">Memory Game Highscores:</h1>
+        <input type="textfield" id="name" />
+        <input type="number" id="score" />
+        <button id="saveButton"> Save </button>
+        <button onClick='restart()'>Restart</button>
+        </br>
+        <script>
+            var getUrlParameter = function getUrlParameter(sParam) {
+                var sPageURL = window.location.search.substring(1),
+                    sURLVariables = sPageURL.split('&'),
+                    sParameterName,
+                    i;
+
+                for (i = 0; i < sURLVariables.length; i++) {
+                    sParameterName = sURLVariables[i].split('=');
+
+                    if (sParameterName[0] === sParam) {
+                        return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
+                    }
+                }
+            };
+            var scor = getUrlParameter('score');
+            document.getElementById('score').value = scor;
+
+            window.twttr = (function (d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0],
+                    t = window.twttr || {};
+                if (d.getElementById(id)) return t;
+                js = d.createElement(s);
+                js.id = id;
+                js.src = "https://platform.twitter.com/widgets.js";
+                fjs.parentNode.insertBefore(js, fjs);
+
+                t._e = [];
+                t.ready = function (f) {
+                    t._e.push(f);
+                };
+
+                return t;
+            }(document, "script", "twitter-wjs"));
+
+            function restart() {
+                window.location = 'index.html';
+            }
+        </script>
+
+        <!--
+             ***Share button code - working, commented out to test iframe***
+             ***https://developers.facebook.com/docs/plugins/share-button#***
+
+             <div class="fb-share-button" data-href="https://zombiebroccoli.com/webpage/highscores.html" data-layout="button_count" data-size="small" data-mobile-iframe="true"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fzombiebroccoli.com%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
+
+             ***iframe testing for mobile screen***
+             <iframe src="https://www.facebook.com/plugins/share_button.php?href=https%3A%2F%2Fzombiebroccoli.com%2Fgame%2Findex.html&layout=button&size=large&mobile_iframe=true&width=73&height=28&appId" width="73" height="28" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
+
+         -->
+        <script src="./app.js"></script>
+    </div>
+</body>
+
+</html>
